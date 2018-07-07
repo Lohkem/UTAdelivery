@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  tipocomida: MyString
+  rangoprecio: MyString
+  ubicacion: MyString
+
+two:
+  nombre: MyString
+  tipocomida: MyString
+  rangoprecio: MyString
+  ubicacion: MyString

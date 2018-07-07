@@ -1,0 +1,43 @@
+<h1>Nuevo Casino</h1>
+
+<%= form_with scope: :casino, url: casinos_path, local: true do |form| %>
+
+  <% if @casino.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@casino.errors.count, "error") %> prohibited
+        this casino from being saved:
+      </h2>
+      <ul>
+        <% @casino.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :nombre %><br>
+    <%= form.text_field :nombre %>
+  </p>
+
+  <p>
+    <%= form.label :'tipo de comida' %><br>
+    <%= form.text_field :tipocomida %>
+  </p>
+
+  <p>
+    <%= form.label :'rango de precio' %><br>
+    <%= form.text_field :rangoprecio %>
+  </p>
+
+  <p>
+    <%= form.label :ubicacion %><br>
+    <%= form.text_field :ubicacion %>
+  </p>
+
+  <p>
+    <%= form.submit "Crear casino" %>
+  </p>
+<% end %>
+<%= link_to 'Volver', casinos_path %>

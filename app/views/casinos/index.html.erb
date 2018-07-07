@@ -1,0 +1,23 @@
+<h1>Listado de casinos</h1>
+
+<%= link_to 'Nuevo casino', new_casino_path %>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Tipo de comida</th>
+    <th>Rango de precio</th>
+    <th>Ubicacion</th>
+    <th></th>
+  </tr>
+ 
+  <% @casinos.each do |casino| %>
+    <tr>
+      <td><%= casino.nombre %></td>
+      <td><%= casino.tipocomida %></td>
+      <td><%= casino.rangoprecio %></td>
+      <td><%= casino.ubicacion %></td>
+      <td><%= link_to 'Show', casino_path(casino) %></td>
+    </tr>
+  <% end %>
+</table>
