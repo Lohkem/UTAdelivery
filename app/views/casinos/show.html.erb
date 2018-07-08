@@ -1,6 +1,5 @@
 <p>
-  <strong>Nombre casino:</strong>
-  <%= @casino.nombre %>
+  <strong><%= @casino.nombre %></strong>
 </p>
  
 <p>
@@ -17,4 +16,12 @@
   <strong>Ubicacion:</strong>
   <%= @casino.ubicacion %>
 </p>
+
+<%= link_to 'Editar', edit_casino_path(@casino) %> |
 <%= link_to 'Volver', casinos_path %>
+
+<p>
+  <strong>Productos</strong>
+</p>
+
+<%= render 'products/product_list', products: @casino.products %>

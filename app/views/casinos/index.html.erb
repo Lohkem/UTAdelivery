@@ -17,7 +17,12 @@
       <td><%= casino.tipocomida %></td>
       <td><%= casino.rangoprecio %></td>
       <td><%= casino.ubicacion %></td>
-      <td><%= link_to 'Show', casino_path(casino) %></td>
+      <td><%= link_to 'Agregar producto', new_casino_product_path(casino) %></td>
+      <td><%= link_to 'Mostrar', casino_path(casino) %></td>
+      <td><%= link_to 'Editar', edit_casino_path(casino) %></td>
+      <td><%= link_to 'Eliminar', casino_path(casino),
+              method: :delete,
+              data: { confirm: '¿Estas seguro/a?' } %></td>
     </tr>
   <% end %>
 </table>
