@@ -1,8 +1,11 @@
 class CasinosController < ApplicationController
   #index, show, new, edit, create, update and destroy
-  
+
   def index
     @casinos = Casino.all
+    if @casinos.empty?
+      flash.now[:info] = "There are no casinos"
+    end
   end
 
   def show

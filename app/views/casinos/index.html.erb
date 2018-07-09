@@ -2,27 +2,6 @@
 
 <%= link_to 'Nuevo casino', new_casino_path %>
 
-<table>
-  <tr>
-    <th>Nombre</th>
-    <th>Tipo de comida</th>
-    <th>Rango de precio</th>
-    <th>Ubicacion</th>
-    <th></th>
-  </tr>
- 
-  <% @casinos.each do |casino| %>
-    <tr>
-      <td><%= casino.nombre %></td>
-      <td><%= casino.tipocomida %></td>
-      <td><%= casino.rangoprecio %></td>
-      <td><%= casino.ubicacion %></td>
-      <td><%= link_to 'Agregar producto', new_casino_product_path(casino) %></td>
-      <td><%= link_to 'Mostrar', casino_path(casino) %></td>
-      <td><%= link_to 'Editar', edit_casino_path(casino) %></td>
-      <td><%= link_to 'Eliminar', casino_path(casino),
-              method: :delete,
-              data: { confirm: '¿Estas seguro/a?' } %></td>
-    </tr>
-  <% end %>
-</table>
+<% if @casinos.any? %>
+  <%= render 'casinos_table' %>
+<% end %>
