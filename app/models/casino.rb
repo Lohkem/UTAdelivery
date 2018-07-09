@@ -1,5 +1,7 @@
 class Casino < ApplicationRecord
-  has_many :products
+  has_many :products,
+  dependent: :destroy
+
   validates :nombre, presence: true, length: {minimum: 3}
   validates :tipocomida, presence: true
   validates :rangoprecio, presence: true,length: {maximum: 3}, format: { with: /\A[$]+\z/, message: "Solo se permite el caracter '$'"}
