@@ -1,9 +1,13 @@
-<table>
+<%
+  btn_html_attributes = {
+    class: ["btn", "btn-outline-primary", "btn-sm"]
+  }
+%>
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Name</th>
       <th>Price</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -12,9 +16,11 @@
       <tr>
         <td><%= product.name %></td>
         <td><%= product.price %></td>
-        <td><%= link_to 'Show', casino_product_url(product[:casino_id], product) %></td>
-        <td><%= link_to 'Edit', edit_casino_product_path(product[:casino_id], product) %></td>
-        <td><%= link_to 'Destroy', casino_product_path(product[:casino_id], product), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to 'Show', casino_product_url(product[:casino_id], product), btn_html_attributes %>
+          <%= link_to 'Edit', edit_casino_product_path(product[:casino_id], product), btn_html_attributes %>
+          <%= link_to 'Destroy', casino_product_path(product[:casino_id], product), method: :delete, data: { confirm: 'Are you sure?' }, class: btn_html_attributes[:class] %>
+        </td>
       </tr>
     <% end %>
   </tbody>

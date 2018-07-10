@@ -1,27 +1,38 @@
-<table>
-<tr>
-  <td><strong><%= @casino.nombre %></strong></td>
-</tr>
+<%
+  btn_html_attributes = {
+    class: ["btn", "btn-outline-primary", "btn-sm"]
+  }
+%>
+<div class="container">
+  <div class="row">
+    <h1><%= @casino.nombre %></h1>
+  </div>
+  <table class="table table-bordered">
+    <trhead>
+      <tr>
+        <th scope="col">Tipo de comida</th>
+        <th scope="col">Rango de precio</th>
+        <th scope="col">Ubicacion</th>
+      </tr>
+    </trhead>
+    <tbody>
+      <tr>
+        <td><%= @casino.tipocomida %></td>
+        <td><%= @casino.rangoprecio %></td>
+        <td><%= @casino.ubicacion %></td>
+        <td align="center">
+          <%= link_to 'Editar', edit_casino_path(@casino), btn_html_attributes %>
+          <%= link_to 'Volver', casinos_path, btn_html_attributes %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-<tr>
-  <td><strong>Tipo de comida:</strong> <%= @casino.tipocomida %></td>
-</tr>
+  <div class="row">
+    <h1>Productos</h1>
+  </div>
 
-<tr>
-  <td><strong>Rango de precio:</strong> <%= @casino.rangoprecio %></td>
-</tr>
-
-<tr>
-  <td><strong>Ubicacion:</strong> <%= @casino.ubicacion %></td>
-</tr>
-
-<tr>
-  <td><%= link_to 'Editar', edit_casino_path(@casino) %> | <%= link_to 'Volver', casinos_path %></td>
-</tr>
-<tr>
-  <td><strong>Productos</strong></td>
-</tr>
-<tr>
-  <td><%= render 'products/product_list', products: @casino.products %></td>
-</tr>
-</table>
+  <div class="row">
+    <%= render 'products/product_list', products: @casino.products %>
+  </div>
+</div>
