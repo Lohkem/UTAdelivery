@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_10_044841) do
+ActiveRecord::Schema.define(version: 2018_07_10_080350) do
 
   create_table "casinos", force: :cascade do |t|
     t.string "nombre"
@@ -28,6 +28,14 @@ ActiveRecord::Schema.define(version: 2018_07_10_044841) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["casino_id"], name: "index_products_on_casino_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "password_digest"
   end
 
 end

@@ -20,10 +20,12 @@
         </div>
         <div style="height:80px"></div>
         <div class="row">
-          <%= render 'layouts/messages' %>
+          <%= render 'layouts/flash_messages' %>
         </div>
         <div class="row">
-          <%= yield %>
+          <div class="container">
+            <%= yield %>
+          </div>
         </div>
     </div>
   </body>

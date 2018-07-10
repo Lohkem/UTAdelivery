@@ -81,3 +81,11 @@ Product.create(
 	price: 750,
 	casino: casino_3
 )
+
+#######################################
+User.create(
+	name: "Adonis Flowers",
+	email: "uff@men.com",
+	password: "1234",
+	password_confirmation: "1234"
+)
