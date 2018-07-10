@@ -2,5 +2,5 @@
 
 <%= render 'form', product: @product %>
 
-<%= link_to 'Show', @product %> |
-<%= link_to 'Back', casino_products_path %>
+<%= link_to 'Show', casino_product_url(@product[:casino_id]) %> |
+<%= link_to 'Back', casino_path(@product[:casino_id]) %>

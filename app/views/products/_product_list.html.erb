@@ -12,7 +12,7 @@
       <tr>
         <td><%= product.name %></td>
         <td><%= product.price %></td>
-        <td><%= link_to 'Show', casino_products_path(product[:casino_id], product) %></td>
+        <td><%= link_to 'Show', casino_product_url(product[:casino_id], product) %></td>
         <td><%= link_to 'Edit', edit_casino_product_path(product[:casino_id], product) %></td>
         <td><%= link_to 'Destroy', casino_product_path(product[:casino_id], product), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

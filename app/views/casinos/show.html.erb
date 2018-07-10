@@ -1,27 +1,27 @@
-<p>
-  <strong><%= @casino.nombre %></strong>
-</p>
- 
-<p>
-  <strong>Tipo de comida:</strong>
-  <%= @casino.tipocomida %>
-</p>
+<table>
+<tr>
+  <td><strong><%= @casino.nombre %></strong></td>
+</tr>
 
-<p>
-  <strong>Rango de precio:</strong>
-  <%= @casino.rangoprecio %>
-</p>
+<tr>
+  <td><strong>Tipo de comida:</strong> <%= @casino.tipocomida %></td>
+</tr>
 
-<p>
-  <strong>Ubicacion:</strong>
-  <%= @casino.ubicacion %>
-</p>
+<tr>
+  <td><strong>Rango de precio:</strong> <%= @casino.rangoprecio %></td>
+</tr>
 
-<%= link_to 'Editar', edit_casino_path(@casino) %> |
-<%= link_to 'Volver', casinos_path %>
+<tr>
+  <td><strong>Ubicacion:</strong> <%= @casino.ubicacion %></td>
+</tr>
 
-<p>
-  <strong>Productos</strong>
-</p>
-
-<%= render 'products/product_list', products: @casino.products %>
+<tr>
+  <td><%= link_to 'Editar', edit_casino_path(@casino) %> | <%= link_to 'Volver', casinos_path %></td>
+</tr>
+<tr>
+  <td><strong>Productos</strong></td>
+</tr>
+<tr>
+  <td><%= render 'products/product_list', products: @casino.products %></td>
+</tr>
+</table>

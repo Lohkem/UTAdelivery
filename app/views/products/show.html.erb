@@ -12,8 +12,8 @@
 
 <p>
   <strong>Casino:</strong>
-  <%= @product.casino %>
+  <%= @product.casino[:nombre] %>
 </p>
 
-<%= link_to 'Edit', edit_casino_product_path(@product) %> |
-<%= link_to 'Back', casino_products_path %>
+<%= link_to 'Edit', edit_casino_product_path(@product[:casino_id]) %> |
+<%= link_to 'Back', casino_products_path(@product[:casino_id]) %>
