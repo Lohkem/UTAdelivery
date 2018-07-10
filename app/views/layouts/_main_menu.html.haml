@@ -1,0 +1,37 @@
+%nav.navbar.navbar-fixed-top.navbar-expand-lg.navbar-dark.bg-dark
+  .container
+    / brand
+    = link_to "UTA Delivery", root_path, class: "navbar-brand"
+
+    / toggle button
+    %button.navbar-toggler{"aria-controls" => "navbarText",
+    "aria-expanded" => "false",
+    "aria-label" => "Toggle navigation",
+    "data-target" => "#navbarText",
+    "data-toggle" => "collapse",
+    type: "button"}
+      %span.navbar-toggler-icon
+
+    / main buttons
+    - link_html_attributes = {class: ["nav-link"]}
+    #navbarText.navbar-collapse.collapse
+      %ul.navbar-nav
+        %li.nav-item
+          = link_to "Quienes Somos?", about_path, link_html_attributes
+        %li.nav-item
+          = link_to "Casinos", casinos_path, link_html_attributes
+
+    .btn-group
+      - if logged_in?
+        %button.btn.btn-secondary.btn-sm.dropdown-toggle{"data-toggle" => "dropdown", type: "button"}
+          = current_user.name
+        .dropdown-menu.dropdown-menu-right
+          %button.dropdown-item{type: "button"}
+            = link_to "Perfil", current_user
+          .dropdown-divider
+          %button.dropdown-item{type: "button"}
+            = link_to "Salir", logout_path, method: :delete
+      - else
+        .navbar-nav
+          %button.btn.btn-secondary.btn-sm.nav-item
+            = link_to "Entrar", login_path, link_html_attributes
