@@ -1,5 +1,6 @@
 <%= form_with model: @casino, local: true do |form| %>
- 
+
+  <!-- TODO: make this appear in a flash message in the layout -->
   <% if @casino.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -13,33 +14,32 @@
       </ul>
     </div>
   <% end %>
- 
-  <p>
-    <%= form.label :nombre %><br>
-    <%= form.text_field :nombre %>
-  </p>
- 
-  <p>
-    <%= form.label :'Tipo de comida' %><br>
-    <%= form.text_field :tipocomida %>
-  </p>
 
-  <p>
-    <%= form.label :'Rango de precio' %><br>
-    <%= form.text_field :rangoprecio %>
-  </p>
-
-  <p>
-    <%= form.label :ubicacion %><br>
-    <%= form.text_field :ubicacion %>
-  </p>
+  <div class="form-group">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, {class: "form-control"} %>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= form.label "Tipo de Comida" %>
+      <%= form.text_field :tipocomida, {class: "form-control"} %>
+    </div>
+    <div class="form-group col-md-6">
+      <%= form.label :'Rango de precio' %>
+    <%= form.text_field :rangoprecio, {class: "form-control"} %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= form.label :ubicacion %>
+    <%= form.text_field :ubicacion, {class: "form-control"} %>
+  </div>
 
   <p>
     <% if @submit_text %>
-      <%= form.submit @submit_text %>
+      <%= form.submit @submit_text, class: "btn btn-primary" %>
     <% else %>
-      <%= form.submit %>
+      <%= form.submit class: "btn btn-primary" %>
     <% end %>
   </p>
- 
+
 <% end %>

@@ -10,8 +10,10 @@
   </head>
 
   <body>
-    <%= render 'layouts/main_menu' %>
-    <%= render 'layouts/messages' %>
-    <%= yield %>
+    <div class="container-fluid">
+        <%= render 'layouts/main_menu' %>
+        <%= render 'layouts/messages' %>
+      <%= yield %>
+    </div>
   </body>
 </html>

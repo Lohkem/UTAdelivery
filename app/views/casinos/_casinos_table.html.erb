@@ -1,24 +1,38 @@
-<table>
-  <tr>
-    <th>Nombre</th>
-    <th>Tipo de comida</th>
-    <th>Rango de precio</th>
-    <th>Ubicacion</th>
-    <th></th>
-  </tr>
+<%
+  btn_html_attributes = {
+    class: ["btn", "btn-outline-primary", "btn-sm"]
+  }
+%>
 
+<table class="table table-bordered">
+  <trhead>
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Tipo de comida</th>
+      <th scope="col">Rango de precio</th>
+      <th scope="col">Ubicacion</th>
+    </tr>
+  </trhead>
+  <tbody>
   <% @casinos.each do |casino| %>
     <tr>
       <td><%= casino.nombre %></td>
       <td><%= casino.tipocomida %></td>
       <td><%= casino.rangoprecio %></td>
       <td><%= casino.ubicacion %></td>
-      <td><%= link_to 'Agregar producto', new_casino_product_path(casino) %></td>
-      <td><%= link_to 'Mostrar', casino_path(casino) %></td>
-      <td><%= link_to 'Editar', edit_casino_path(casino) %></td>
-      <td><%= link_to 'Eliminar', casino_path(casino),
-              method: :delete,
-              data: { confirm: '¿Estas seguro/a?' } %></td>
+      <td align="center">
+        <%= link_to 'Agregar producto', new_casino_product_path(casino), btn_html_attributes %>
+        <%= link_to 'Mostrar', casino_path(casino), btn_html_attributes %>
+        <%= link_to 'Editar', edit_casino_path(casino), btn_html_attributes %>
+        <%= link_to 'Eliminar', casino_path(casino),
+          {
+            method: :delete,
+            data: { confirm: '¿Estas seguro/a?' },
+            class: btn_html_attributes[:class]
+          }
+        %>
+      </td>
     </tr>
+  </tbody>
   <% end %>
 </table>
