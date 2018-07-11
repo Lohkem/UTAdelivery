@@ -19,4 +19,8 @@ module SessionsHelper
   def is_admin?
     current_user&.admin?
   end
+
+  def is_deliverer?
+    current_user&.deliverer?
+  end
 end
