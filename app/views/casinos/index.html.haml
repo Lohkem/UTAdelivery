@@ -1,0 +1,9 @@
+- btn_html_attributes = { class: ["btn", "btn-primary"] }
+
+.container
+  .row
+    %h1 Listado de casinos
+  .row
+    = link_to 'Nuevo casino', new_casino_path, btn_html_attributes
+  - if @casinos.any?
+    = render 'casinos_table'

@@ -1,0 +1,6 @@
+.container
+  .row
+    %h1
+      Nuevo producto para: #{@casino[:nombre]}
+  .row
+    = render 'form', product: @product, ok_url: casino_products_path

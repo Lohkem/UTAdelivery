@@ -28,6 +28,8 @@
         .dropdown-menu.dropdown-menu-right
           %button.dropdown-item{type: "button"}
             = link_to "Perfil", current_user
+          %button.dropdown-item{type: "button"}
+            = link_to "Ordenes", root_path
           .dropdown-divider
           %button.dropdown-item{type: "button"}
             = link_to "Salir", logout_path, method: :delete

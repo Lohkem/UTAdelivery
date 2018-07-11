@@ -30,10 +30,12 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to casino_path(casino_params), notice: 'Product was successfully created.' }
+        flash[:success] = "Producto creado exitosamente."
+        format.html { redirect_to casino_path(casino_params) }
         format.json { render :show, status: :created, location: @product }
       else
-        format.html { render :new }
+        flash[:danger] = "Error en la creacion del producto"
+        format.html { redirect_to new_casino_product_path }
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
@@ -44,9 +46,11 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
+        flash[:success] = "Producto editado exitosamente."
+        format.html { redirect_to casino_product_path }
         format.json { render :show, status: :ok, location: @product }
       else
+        flash.now[:danger] = "Error en la edicion del producto"
         format.html { render :edit }
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
@@ -58,7 +62,8 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to casino_path(casino_params), notice: 'Product was successfully destroyed.' }
+      flash[:success] = "Producto eliminado exitosamente."
+      format.html { redirect_to casino_path(casino_params) }
       format.json { head :no_content }
     end
   end

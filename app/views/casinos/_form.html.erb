@@ -34,12 +34,17 @@
     <%= form.text_field :ubicacion, {class: "form-control"} %>
   </div>
 
-  <p>
-    <% if @submit_text %>
-      <%= form.submit @submit_text, class: "btn btn-primary" %>
-    <% else %>
-      <%= form.submit class: "btn btn-primary" %>
-    <% end %>
-  </p>
+  <div class="row">
+    <div class="col-md-6">
+      <%= link_to 'Volver', :back, class: ["form-control", "btn", "btn-primary"]%>
+    </div>
+    <div class="col-md-6">
+      <% if @submit_text %>
+        <%= form.submit @submit_text, class: ["form-control", "btn", "btn-primary"] %>
+      <% else %>
+        <%= form.submit class: ["form-control", "btn", "btn-primary"] %>
+      <% end %>
+    </div>
+  </div>
 
 <% end %>

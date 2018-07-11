@@ -1,0 +1,13 @@
+%table.table.table-bordered
+  %thead
+    %tr
+      %th Nombre
+      %th Precio
+      %th Casino
+  %tbody
+    %tr
+      %td= @product.name
+      %td= @product.price
+      %td= @product.casino[:nombre]
+      %td= link_to 'Editar', edit_casino_product_path(@product[:casino_id]), class: "btn btn-outline-primary"
+= link_to 'Volver', casino_path(@product[:casino_id]), class: "btn btn-primary"
