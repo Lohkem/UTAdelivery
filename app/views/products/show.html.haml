@@ -1,13 +1,32 @@
-%table.table.table-bordered
-  %thead
-    %tr
-      %th Nombre
-      %th Precio
-      %th Casino
-  %tbody
-    %tr
-      %td= @product.name
-      %td= @product.price
-      %td= @product.casino[:nombre]
-      %td= link_to 'Editar', edit_casino_product_path(@product[:casino_id]), class: "btn btn-outline-primary"
-= link_to 'Volver', casino_path(@product[:casino_id]), class: "btn btn-primary"
+.container
+
+  %h1 Productos de #{@product.casino[:nombre]}
+
+  %table.table.table-bordered
+
+    %thead
+      %tr
+        %th Nombre
+        %th Precio
+
+    %tbody
+      %tr
+        %td= @product.name
+        %td= @product.price
+
+        %td{align: "center"}
+          .btn-group
+            / TODO: add cart model
+            = form_with(url: "PENDING") do |form|
+              .input-group
+                .input-group-prepend.input-group-text
+                  cantidad
+                = form.number_field "quantity", {value: 1, class: ["input-group-append", "form-control", "col-sm-2"]}
+                .input-group-append
+                  = form.submit "Agregar al carrito :3", class: ["btn", "btn-outline-primary"]
+
+        - if is_admin?
+          %td{align: "center"}
+            .btn-group
+              = link_to 'Editar', edit_casino_product_path(@product[:casino_id]), class: "btn btn-outline-primary"
+  = link_to 'Volver', casino_path(@product[:casino_id]), class: "btn btn-primary"

@@ -61,3 +61,4 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 gem 'bcrypt'
 gem 'haml'
+gem "font-awesome-rails"

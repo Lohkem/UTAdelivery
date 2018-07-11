@@ -1,6 +1,9 @@
 - btn_html_attributes = { class: ["btn", "btn-outline-primary", "btn-sm"] }
 
 .container
+  = render 'shared/admin_panel' do
+    .btn-group
+      = link_to 'Nuevo Producto', new_casino_product_path(@casino), btn_html_attributes
   .row
     %h1= @casino.nombre
   .row
@@ -14,12 +17,12 @@
           %td= @casino.tipocomida
           %td= @casino.rangoprecio
           %td= @casino.ubicacion
-          %td{align: "center"}
-            = link_to 'Editar', edit_casino_path(@casino), btn_html_attributes
+          - if is_admin?
+            %td{align: "center"}
+              .btn-group
+                = link_to 'Editar', edit_casino_path(@casino), btn_html_attributes
   .row
     %h1 Productos
-  .row
-    = link_to 'Nuevo Producto', new_casino_product_path(@casino), class: ["btn", "btn-primary"]
   .row
     = render 'products/product_list', products: @casino.products
   .row
