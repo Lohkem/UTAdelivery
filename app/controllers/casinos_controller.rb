@@ -1,5 +1,4 @@
 class CasinosController < ApplicationController
-  #index, show, new, edit, create, update and destroy
 
   def index
     @casinos = Casino.all
@@ -32,7 +31,7 @@ class CasinosController < ApplicationController
 
   def update
   @casino = Casino.find(params[:id])
- 
+
   if @casino.update(casino_params)
     redirect_to @casino
   else
@@ -43,7 +42,7 @@ end
 def destroy
   @casino = Casino.find(params[:id])
   @casino.destroy
- 
+
   redirect_to casinos_path
 end
 

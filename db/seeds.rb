@@ -9,6 +9,7 @@
 
 Casino.destroy_all
 Product.destroy_all
+User.destroy_all
 
 #######################################
 casino_1 = Casino.create(
@@ -87,5 +88,22 @@ User.create(
 	name: "Adonis Flowers",
 	email: "uff@men.com",
 	password: "1234",
-	password_confirmation: "1234"
+	password_confirmation: "1234",
+	role: User.roles[:admin]
+)
+
+User.create(
+	name: "Kevin Larrrs",
+	email: "k3v@chanta.com",
+	password: "1234",
+	password_confirmation: "1234",
+	role: User.roles[:customer]
+)
+
+User.create(
+	name: "Angelin Bombin",
+	email: "yiro@macondo.com",
+	password: "1234",
+	password_confirmation: "1234",
+	role: User.roles[:deliverer]
 )

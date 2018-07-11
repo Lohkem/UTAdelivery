@@ -1,0 +1,24 @@
+- btn_html_attributes = { class: ["btn", "btn-outline-primary", "btn-sm"] }
+
+%table.table.table-hover.table-bordered
+  %thead
+    %tr
+      %th Nombre
+      %th Precio
+  %tbody
+    - products.each do |product|
+      %tr.clickable-row{"data-href": casino_product_url(product[:casino_id], product)}
+        %td= product.name
+        %td= product.price
+        - if is_admin?
+          %td{align: "center"}
+            .btn-group
+              = link_to 'Edit', edit_casino_product_path(product[:casino_id], product), btn_html_attributes
+              = link_to 'Destroy', casino_product_path(product[:casino_id], product), |
+                {                                                                     |
+                  method: :delete,                                                    |
+                  data: {                                                             |
+                    confirm: 'Seguro quieres borrar este producto?, se ve rico :9'    |
+                  },                                                                  |
+                  class: btn_html_attributes[:class]                                  |
+                }                                                                     |

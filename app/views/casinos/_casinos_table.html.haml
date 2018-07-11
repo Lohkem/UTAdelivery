@@ -1,0 +1,26 @@
+- btn_html_attributes = { class: ["btn", "btn-outline-primary", "btn-sm"] }
+
+%table.table.table-hover.table-bordered.shadow-sm
+  %trhead
+    %tr
+      %th{:scope => "col"} Nombre
+      %th{:scope => "col"} Tipo de comida
+      %th{:scope => "col"} Rango de precio
+      %th{:scope => "col"} Ubicacion
+  %tbody
+    - @casinos.each do |casino|
+      %tr.clickable-row{"data-href": casino_path(casino)}
+        %td= casino.nombre
+        %td= casino.tipocomida
+        %td= casino.rangoprecio
+        %td= casino.ubicacion
+        - if is_admin?
+          %td{:align => "center"}
+            .btn-group
+              = link_to 'Editar', edit_casino_path(casino), btn_html_attributes
+              = link_to 'Eliminar', casino_path(casino), |
+                {                                        |
+                  method: :delete,                       |
+                  data: { confirm: '¿Estas seguro/a?' }, |
+                  class: btn_html_attributes[:class]     |
+                }                                        |

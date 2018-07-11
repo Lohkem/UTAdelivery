@@ -22,11 +22,14 @@
           = link_to "Casinos", casinos_path, link_html_attributes
 
     .btn-group
-      - if logged_in?
+      %button.btn.btn-secondary.btn-sm
+        %i.fa.fa-shopping-cart.text-light
+        5
+      -if logged_in?
         %button.btn.btn-secondary.btn-sm.dropdown-toggle{"data-toggle" => "dropdown", type: "button"}
           = current_user.name
         .dropdown-menu.dropdown-menu-right
-          %button.dropdown-item{type: "button"}
+          %button.dropdown-item
             = link_to "Perfil", current_user
           %button.dropdown-item{type: "button"}
             = link_to "Ordenes", root_path
@@ -34,6 +37,6 @@
           %button.dropdown-item{type: "button"}
             = link_to "Salir", logout_path, method: :delete
       - else
-        .navbar-nav
-          %button.btn.btn-secondary.btn-sm.nav-item
-            = link_to "Entrar", login_path, link_html_attributes
+        %button.btn.btn-secondary.btn-sm
+          .col
+            = link_to "Entrar", login_path, class: ["text-light"]
