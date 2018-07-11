@@ -1,0 +1,30 @@
+/ Toda esta seccion es un comentario (por que esta dentro de un "-#",
+/ a continuacion hare una linea "-" que es del tipo "Running Ruby",
+/ lo que significa que es codigo ruby pero no se imprime, un ejemplo:
+
+/ haml:
+/ - if @user.empty?
+
+/ el equivalente en ERB es:
+/ <% if @user.empty? %>
+
+- html_attributes = {class: "form-control"}
+
+= render 'shared/error_messages'
+
+.row
+  = form_for(@user) do |f|
+    .form-group
+      = f.label :name
+      = f.text_field :name, html_attributes
+    .form-group
+      = f.label :email
+      = f.email_field :email, html_attributes
+    .form-group
+      = f.label :password
+      = f.password_field :password, html_attributes
+    .form-group
+      = f.label :password_confirmation, "Confirmation"
+      = f.password_field :password_confirmation, html_attributes
+    .form-group
+      = f.submit "Create my account", class: ["btn", "btn-primary", html_attributes[:class]]

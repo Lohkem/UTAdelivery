@@ -1,0 +1,16 @@
+%h5 Tienes hambre?
+%h1 Entra ya!
+.row
+  .col-md-6
+    = form_for(:session, url: login_path) do |f|
+      .form-group
+        = f.label :email
+        = f.email_field :email, class: 'form-control'
+      .form-group
+        = f.label :password
+        = f.password_field :password, class: 'form-control'
+      .form-group
+        = f.submit "Log in", class: ["btn", "btn-primary", "form-control"]
+      .form-group
+        No tienes una cuenta?
+        = link_to "Registrate Ahora!", signup_path
