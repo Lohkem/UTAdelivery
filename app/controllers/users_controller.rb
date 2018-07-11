@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    if is_admin?
+      flash.now[:info] = "Eres un admin, WOOOOO! @_@"
+    end
   end
 
   def new
