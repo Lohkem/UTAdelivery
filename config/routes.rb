@@ -13,6 +13,11 @@ Rails.application.routes.draw do
   resources :users
   get '/signup', to: 'users#new'
 
+  #deliverers
+  get '/deliverers', to: 'welcome#deliverers'
+  get '/deliverers/signup', to: 'deliverer#new'
+  post '/deliverers/signup', to: 'deliverer#create'
+
   #session
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
