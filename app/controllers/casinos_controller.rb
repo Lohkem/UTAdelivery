@@ -1,5 +1,4 @@
 class CasinosController < ApplicationController
-  #index, show, new, edit, create, update and destroy
 
   def index
     @casinos = Casino.all
