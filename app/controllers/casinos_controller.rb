@@ -32,7 +32,7 @@ class CasinosController < ApplicationController
 
   def update
   @casino = Casino.find(params[:id])
- 
+
   if @casino.update(casino_params)
     redirect_to @casino
   else
@@ -43,7 +43,7 @@ end
 def destroy
   @casino = Casino.find(params[:id])
   @casino.destroy
- 
+
   redirect_to casinos_path
 end
 
