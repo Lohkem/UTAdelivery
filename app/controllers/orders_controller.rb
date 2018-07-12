@@ -18,6 +18,7 @@ class OrdersController < ApplicationController
     end
     Order.create(orders)
     destroy_shopping_cart
+    start_delivery order_id
     redirect_to orders_path
   end
 
@@ -25,4 +26,19 @@ class OrdersController < ApplicationController
     @items = Order.where(order_id: params[:id])
     @order_id = params[:id]
   end
+
+  private
+    def start_delivery(order_id)
+      deliverer = get_available_deliverer
+      call_deliverer deliverer, order_id
+    end
+
+    def get_available_deliverer
+      #TODO: check availability
+      User.where(role: :deliverer).sample
+    end
+
+    def call_deliverer(deliverer, order_id)
+      UserMailer.with(deliverer: deliverer, order_id: order_id).deliverer_job.deliver_now
+    end
 end
