@@ -27,7 +27,9 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
 
   #cart_products
+  get    '/cart',             to: 'cart_products#index'
   post   '/cart',             to: 'cart_products#create'
+  delete '/cart',             to: 'cart_products#destroy'
   put    '/cart/:product_id', to: 'cart_products#update'
-  delete '/cart/:product_id', to: 'cart_products#destroy'
+  get    '/cart_count',       to: 'cart_products#count'
 end

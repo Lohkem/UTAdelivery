@@ -1,0 +1,26 @@
+.container
+
+  %h2 Tu carro de compra
+
+  .container.mt-5
+    = form_with(url: orders_path) do |form|
+      - @cart_items.each do |cart_item|
+        = render 'shopping_cart_item', cart_item: cart_item, form: form
+
+    .row.justify-content-end.border-top.mt-2
+      .col-sm-5
+        .row.m-0.mb-2
+          %label.col-sm-7.col-form-label.bg-light.border-right.border-bottom.text-truncate
+            Envio >:)
+          %label.col-sm-5.col-form-label.bg-white.border-right.border-bottom.text-truncate.text-right
+            300
+          %label.col-sm-7.col-form-label.bg-light.border-right.border-bottom.text-truncate
+            Total
+          %label.col-sm-5.col-form-label.bg-white.border-right.border-bottom.text-truncate.text-right
+            = @total
+        .row.no-gutters
+          .col-sm-12
+            = link_to orders_path, class: ["btn", "btn-block", "btn-outline-primary", "btn-sm"] do
+              Hacer Pedido! :9
+            = link_to cart_path, method: :delete, class: ["btn", "btn-block", "btn-outline-danger", "btn-sm"] do
+              Borrar Carro :(

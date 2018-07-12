@@ -19,7 +19,15 @@
 //= require popper
 //= require bootstrap-sprockets
 
+function update_shopping_cart_count(data) {
+  $('#shopping_cart_counter').html(data);
+}
+
 $( document ).on('turbolinks:load', function() {
+  $.ajax("/cart_count").done(function(data) {
+    update_shopping_cart_count(data);
+  });
+
   $(".clickable-row").click(function() {
       window.location = $(this).data("href");
   });
@@ -27,8 +35,7 @@ $( document ).on('turbolinks:load', function() {
   $("form")
   .on("ajax:success", function(event) {
     [data, status, xhr] = event.detail
-    console.log(event.detail)
-    $('#shopping_cart_counter').html(data)
+    update_shopping_cart_count(data);
   })
   .on("ajax:error", function(event) {
     console.log(event)

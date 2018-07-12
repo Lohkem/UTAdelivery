@@ -1,0 +1,24 @@
+.row.mb-1
+  .col-sm-3.border-bottom.border-right
+    = cart_item[:product].casino.nombre
+  .col-sm-4.border-bottom
+    = cart_item[:product].name
+  .col-sm-5
+    .row.no-gutters
+      .input-group
+        .input-group-prepend
+          .input-group-text
+            = cart_item[:product].price
+        .input-group-prepend
+          .input-group-text
+            x
+        = form.number_field "quantity", {value: cart_item[:quantity], class: ["input-group-prepend", "form-control"]}
+        .input-group-prepend
+          .input-group-text
+            \=
+            = cart_item[:sub_total]
+        .btn-group.input-group-append
+          = link_to '#', class: ["btn", "btn-outline-primary"] do
+            %i.fa.fa-refresh
+          = link_to '#', class: ["btn", "btn-outline-danger"] do
+            %span{"aria-hidden" => "true"} ×

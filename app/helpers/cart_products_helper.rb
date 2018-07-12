@@ -1,6 +1,6 @@
 module CartProductsHelper
   def add_product_to_cart(cart_params)
-    product_id = cart_params[:product_id]
+    product_id = cart_params[:product_id].to_s
     quantity = cart_params[:quantity].to_i
 
     unless shopping_cart.key? product_id
@@ -11,7 +11,7 @@ module CartProductsHelper
   end
 
   def destroy_shopping_cart
-    session.delete[:shopping_cart]
+    session.delete :shopping_cart
   end
 
   def shopping_cart_count
