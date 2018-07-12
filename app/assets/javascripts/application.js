@@ -23,4 +23,15 @@ $( document ).on('turbolinks:load', function() {
   $(".clickable-row").click(function() {
       window.location = $(this).data("href");
   });
+
+  $("form")
+  .on("ajax:success", function(event) {
+    [data, status, xhr] = event.detail
+    console.log(event.detail)
+    $('#shopping_cart_counter').html(data)
+  })
+  .on("ajax:error", function(event) {
+    console.log(event)
+  });
+
 });

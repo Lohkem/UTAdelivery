@@ -1,15 +1,17 @@
 - btn_html_attributes = { class: ["btn", "btn-outline-primary", "btn-sm"] }
 
-%table.table.table-hover.table-bordered
+%table.table.table-bordered
   %thead
     %tr
       %th Nombre
       %th Precio
   %tbody
     - products.each do |product|
-      %tr.clickable-row{"data-href": casino_product_url(product[:casino_id], product)}
+      %tr
         %td= product.name
         %td= product.price
+        %td{align: "center"}
+          = render 'products/add_to_cart_form', product: product
         - if is_admin?
           %td{align: "center"}
             .btn-group

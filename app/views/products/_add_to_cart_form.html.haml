@@ -1,0 +1,9 @@
+.btn-group
+  = form_with(url: cart_path) do |form|
+    .input-group
+      = form.hidden_field :product_id, value: product.id
+      .input-group-prepend.input-group-text
+        cantidad
+      = form.number_field "quantity", {value: 1, class: ["input-group-append", "form-control", "col-sm-2"]}
+      .input-group-append
+        = form.submit "Agregar al carrito :3", class: ["btn", "btn-outline-primary"]
