@@ -1,7 +1,7 @@
-.row
-  = render 'shared/deliverers_panel' do
-    %p.lead ¿Quieres repartir comida en el campus Saucache?
-.row
-  %h1 Registrate wn!
-
-= render "form"
+.container
+  .row.justify-content-md-center
+    = render 'shared/deliverers_panel' do
+      %p.lead ¿Quieres repartir comida en el campus Saucache?
+  .row.justify-content-md-center
+    %p.lead.display-3 Regístrate
+  = render "form"

@@ -1,7 +1,9 @@
-%h5 Tienes hambre?
-%h1 Entra ya!
-.row
-  .col-md-6
+.row.justify-content-md-center
+  .p.lead Tienes hambre?
+.row.justify-content-md-center
+  .p.lead.display-3 Entra ya!
+.row.justify-content-md-center
+  .col-md-4
     = form_for(:session, url: login_path) do |f|
       .form-group
         = f.label :email

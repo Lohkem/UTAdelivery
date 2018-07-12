@@ -10,19 +10,20 @@
 
 - html_attributes = {class: "form-control"}
 
-.row
-  = form_with(model: @user, url: @form_url, local: true) do |f|
-    .form-group
-      = f.label :name
-      = f.text_field :name, html_attributes
-    .form-group
-      = f.label :email
-      = f.email_field :email, html_attributes
-    .form-group
-      = f.label :password
-      = f.password_field :password, html_attributes
-    .form-group
-      = f.label :password_confirmation, "Confirmation"
-      = f.password_field :password_confirmation, html_attributes
-    .form-group
-      = f.submit "Create my account", class: ["btn", "btn-primary", html_attributes[:class]]
+.row.justify-content-md-center
+  .col-md-6
+    = form_with(model: @user, url: @form_url, local: true) do |f|
+      .form-group
+        = f.label :name
+        = f.text_field :name, html_attributes
+      .form-group
+        = f.label :email
+        = f.email_field :email, html_attributes
+      .form-group
+        = f.label :password
+        = f.password_field :password, html_attributes
+      .form-group
+        = f.label :password_confirmation, "Confirmation"
+        = f.password_field :password_confirmation, html_attributes
+      .form-group
+        = f.submit "Create my account", class: ["btn", "btn-primary", html_attributes[:class]]
