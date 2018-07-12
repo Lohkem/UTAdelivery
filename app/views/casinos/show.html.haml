@@ -8,10 +8,11 @@
     %h1= @casino.nombre
   .row
     %table.table.table-bordered
-      %tr
-        %th{scope: "col"} Tipo de comida
-        %th{scope: "col"} Rango de precio
-        %th{scope: "col"} Ubicacion
+      %trhead
+        %tr
+          %th{scope: "col"} Tipo de comida
+          %th{scope: "col"} Rango de precio
+          %th{scope: "col"} Ubicacion
       %tbody
         %tr
           %td= @casino.tipocomida

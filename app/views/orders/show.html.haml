@@ -1,0 +1,12 @@
+.container
+  - debugger
+  %h1 Ordenes de: #{@orders.user[:name]}
+  %table.table.table-bordered
+    %trhead
+      %tr
+        %th Order ID
+        %th User ID
+    %tbody
+      %tr
+        %td= @orders.id
+        %td= @orders.user_id

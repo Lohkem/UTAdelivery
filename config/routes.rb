@@ -14,9 +14,7 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new'
 
   #orders
-  get  '/orders',     to: 'orders#index'
-  get  '/orders/:id', to: 'orders#show'
-  post '/orders',     to: 'orders#create'
+  resources :orders, only: [:index, :show, :create]
 
   #deliverers
   get  '/deliverers',        to: 'welcome#deliverers'

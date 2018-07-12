@@ -10,6 +10,7 @@
 Casino.destroy_all
 Product.destroy_all
 User.destroy_all
+Order.destroy_all
 
 #######################################
 casino_1 = Casino.create(
@@ -92,7 +93,7 @@ User.create(
 	role: User.roles[:admin]
 )
 
-User.create(
+kevin = User.create(
 	name: "Kevin Larrrs",
 	email: "k3v@chanta.com",
 	password: "1234",
@@ -106,4 +107,9 @@ User.create(
 	password: "1234",
 	password_confirmation: "1234",
 	role: User.roles[:deliverer]
+)
+
+#######################################
+Order.create(
+  user: kevin
 )
