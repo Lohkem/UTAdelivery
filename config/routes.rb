@@ -13,9 +13,14 @@ Rails.application.routes.draw do
   resources :users
   get '/signup', to: 'users#new'
 
+  #orders
+  get  '/orders',     to: 'orders#index'
+  get  '/orders/:id', to: 'orders#show'
+  post '/orders',     to: 'orders#create'
+
   #deliverers
-  get '/deliverers', to: 'welcome#deliverers'
-  get '/deliverers/signup', to: 'deliverer#new'
+  get  '/deliverers',        to: 'welcome#deliverers'
+  get  '/deliverers/signup', to: 'deliverer#new'
   post '/deliverers/signup', to: 'deliverer#create'
 
   #session
