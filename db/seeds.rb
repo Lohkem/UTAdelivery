@@ -108,8 +108,3 @@ User.create(
 	password_confirmation: "1234",
 	role: User.roles[:deliverer]
 )
-
-#######################################
-Order.create(
-  user: kevin
-)
