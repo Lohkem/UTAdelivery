@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
+  include CartProductsHelper
 
   before_action :require_login, except: [:index, :show]
   before_action :require_admin, only: [:new, :edit, :create, :update, :destroy]

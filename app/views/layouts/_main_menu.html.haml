@@ -25,7 +25,8 @@
     .btn-group
       %button.btn.btn-secondary.btn-sm
         %i.fa.fa-shopping-cart.text-light
-        5
+        %span#shopping_cart_counter
+          0
       -if logged_in?
         %button.btn.btn-secondary.btn-sm.dropdown-toggle{"data-toggle" => "dropdown", type: "button"}
           = current_user.name
