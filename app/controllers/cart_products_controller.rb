@@ -2,9 +2,13 @@ class CartProductsController < ApplicationController
   skip_before_action :require_login
   skip_before_action :require_admin
 
+  def count
+    render json: shopping_cart_count
+  end
+
   def create
     add_product_to_cart cart_params
-    render json: shopping_cart_count
+    cart_count
   end
 
   def update

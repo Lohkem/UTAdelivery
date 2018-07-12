@@ -30,4 +30,5 @@ Rails.application.routes.draw do
   post   '/cart',             to: 'cart_products#create'
   put    '/cart/:product_id', to: 'cart_products#update'
   delete '/cart/:product_id', to: 'cart_products#destroy'
+  get    '/cart_count',       to: 'cart_products#count'
 end
