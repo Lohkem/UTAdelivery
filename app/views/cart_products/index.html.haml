@@ -20,7 +20,7 @@
             = @total
         .row.no-gutters
           .col-sm-12
-            = link_to orders_path, class: ["btn", "btn-block", "btn-outline-primary", "btn-sm"] do
+            = link_to orders_path, method: :post, class: ["btn", "btn-block", "btn-outline-primary", "btn-sm"] do
               Hacer Pedido! :9
             = link_to cart_path, method: :delete, class: ["btn", "btn-block", "btn-outline-danger", "btn-sm"] do
               Borrar Carro :(

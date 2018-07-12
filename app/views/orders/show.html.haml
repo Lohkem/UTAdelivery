@@ -1,11 +1,14 @@
 .container
-  %p.lead.display-4 Orden ##{@orders[:id]}
+  %h2.font-weight-light{align: "center"} Orden: #{@order_id}
   %table.table.table-bordered
     %trhead
       %tr
-        %th Order ID
-        %th User ID
+        %th Casino
+        %th Producto
+        %th Cantidad
     %tbody
-      %tr
-        %td= @orders.id
-        %td= @orders.user_id
+      - @items.each do |item|
+        %tr
+          %td= item.product.casino.nombre
+          %td= item.product.name
+          %td= item.quantity
