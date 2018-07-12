@@ -1,1 +1,15 @@
-= debug @user
+.container
+  %h1 Perfil
+  .w-25
+    %table.table
+      %tbody
+        %tr
+          %td
+            %p Nombre
+          %td
+            #{current_user[:name]}
+        %tr
+          %td
+            %p E-mail
+          %td
+            #{current_user[:email]}
